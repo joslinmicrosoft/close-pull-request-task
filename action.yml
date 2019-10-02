@@ -1,15 +1,21 @@
-name: 'Hello World'
-description: 'Greet someone and record the time'
+name: 'Azure Pages Close Pull Request'
+description: 'Alerts Azure Pages to close a pull request site'
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
+  azure_pages_buildhost:
+    description: 'Azure Pages Build Hostname'
     required: true
-    default: 'World'
+    default: ''
+  azure_pages_api_token:
+    description: 'Azure Pages Api Token'
+    required: true
+    default: ''
+  azure_pages_api_version:
+    description: 'Azure Pages Api Version'
+    required: false
+    default: 'v1'
 outputs:
   time: # id of output
-    description: 'The time we greeted you'
+    description: 'The time we we greeted you'
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  args:
-    - ${{ inputs.who-to-greet }}
